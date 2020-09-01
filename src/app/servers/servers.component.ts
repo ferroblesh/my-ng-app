@@ -14,6 +14,8 @@ export class ServersComponent implements OnInit {
   serverName = "TestServer";
   username="";
   serverCreated = false;
+  clicked=false;
+  clickedLog = []
 
   constructor() { 
     setTimeout(() => {
@@ -31,6 +33,14 @@ export class ServersComponent implements OnInit {
 
   onUpdateServerName(event: any) {
     this.serverName = (<HTMLInputElement>event.target).value;
+  }
+
+  onClicked(event:any) {
+    const loggedValues = {
+      registered: new Date(),
+    }
+    this.clickedLog.push(this.clickedLog.length + 1);
+    this.clicked = !this.clicked;
   }
 
 }

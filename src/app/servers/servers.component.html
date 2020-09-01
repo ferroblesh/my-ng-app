@@ -22,6 +22,16 @@
     [(ngModel)]="username"
 >
 <p>{{username}}</p>
+
 <button 
    [disabled]="username.length==0"
    (click)="username=''">Reset User</button>
+
+<button
+    (click)="onClicked()"
+>Change!</button>
+<p *ngIf="clicked">Secret value: tuna!</p>
+
+<li *ngFor="let clickedLogValue of clickedLog">
+    {{clickedLogValue}}
+</li>
